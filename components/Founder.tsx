@@ -1,120 +1,112 @@
 import React from 'react';
-import { Linkedin, Twitter, Github, FileCheck, Shield, ExternalLink, Award } from 'lucide-react';
+import { Linkedin, Github, FileCheck, Shield, Globe, Code2, Cpu, Terminal, Sparkles } from 'lucide-react';
 
 const Founder: React.FC = () => {
   return (
     <section id="about" className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-4 mb-8 opacity-60">
-            <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent flex-grow"></div>
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-300">Core Team & Architecture</span>
-            <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent flex-grow"></div>
-        </div>
-
-        {/* Main "Artist" Card */}
-        <div className="bg-[#1c1c1e] rounded-[40px] overflow-hidden shadow-2xl border border-white/5 relative group">
-          
-          {/* Header Background Image/Gradient */}
-          <div className="h-56 md:h-72 w-full relative overflow-hidden">
-             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
-             <div className="absolute inset-0 bg-gradient-to-t from-[#1c1c1e] via-[#1c1c1e]/60 to-transparent"></div>
-             <div className="absolute inset-0 bg-gradient-to-r from-[#1c1c1e] to-transparent"></div>
-          </div>
-
-          <div className="px-8 md:px-12 pb-12 -mt-24 relative z-10 flex flex-col md:flex-row gap-8 items-start">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Apple Music Style Artist Header */}
+        <div className="relative rounded-[40px] overflow-hidden bg-[#1c1c1e] border border-white/5 shadow-2xl group">
             
-            {/* Profile Picture */}
-            <div className="flex-shrink-0 relative group">
-              <div className="w-40 h-40 md:w-56 md:h-56 rounded-full p-2 bg-gradient-to-br from-[#1c1c1e] via-[#fa2d48] to-[#5e5ce6] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10">
-                <img 
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170&auto=format&fit=crop" 
-                  alt="Tavana Mohammadi" 
-                  className="w-full h-full rounded-full object-cover bg-[#000] border-4 border-[#1c1c1e]"
-                />
-              </div>
-              <div className="absolute bottom-4 right-4 z-20 bg-[#3b82f6] text-white p-2 rounded-full border-[4px] border-[#1c1c1e] shadow-lg" title="Verified Maintainer">
-                <Shield size={18} fill="currentColor" />
-              </div>
+            {/* Dynamic Background with Noise & Blurs */}
+            <div className="absolute inset-0 transition-opacity duration-700">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2c1e31] via-[#1c1c1e] to-black opacity-90"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-blob"></div>
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#fa2d48]/10 rounded-full blur-[120px] mix-blend-screen animate-blob" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 contrast-150 brightness-100"></div>
             </div>
 
-            {/* Info & Bio */}
-            <div className="flex-grow pt-4 md:pt-20 space-y-6">
-              <div>
-                <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2">
-                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">توانا محمدی</h2>
-                    <span className="w-fit px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[10px] font-bold uppercase tracking-wider text-gray-300">Founder</span>
-                </div>
-                <p className="text-[#fa2d48] font-mono text-sm md:text-base font-medium flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#fa2d48] animate-pulse"></span>
-                  Senior Network Engineer @ Tavaana Network
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-400 text-sm leading-7 font-light">
-                <p>
-                  مهندس شبکه با ۱۲ سال سابقه تخصصی در تحلیل ترافیک و پروتکل‌های رمزنگاری. 
-                  فعالیت حرفه‌ای به عنوان <span className="text-white font-medium border-b border-white/20 pb-0.5">Core Maintainer</span> در پروژه‌های V2Ray و Xray.
-                  تخصص اصلی او پیاده‌سازی مکانیزم‌های <span className="font-mono text-xs bg-white/10 px-1.5 py-0.5 rounded text-white">Anti-DPI</span> و طراحی ساختارهای Load Balancing است.
-                </p>
-                <p>
-                   او هم‌اکنون رهبری تیم فنی نوا وی‌پی‌ان را برعهده دارد و بر روی توسعه پروتکل‌های اختصاصی برای عبور از محدودیت‌های اینترنت ملی متمرکز است. معماری "نوا" حاصل تحقیقات او بر روی رفتار فایروال‌های نسل جدید (NGFW) است.
-                </p>
-              </div>
-
-              {/* Stats / Tech Stack */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                 {['Network Security', 'Golang', 'Rust', 'Linux Kernel', 'Cryptography', 'eBPF'].map((tag) => (
-                     <span key={tag} className="px-3 py-1 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-gray-300 border border-white/5 transition-colors cursor-default">
-                         #{tag}
-                     </span>
-                 ))}
-              </div>
-
-              {/* Actions */}
-              <div className="flex flex-wrap gap-4 pt-6 border-t border-white/5 mt-6">
-                <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                  <FileCheck size={18} />
-                  مشاهده گزارش ممیزی (Audit)
-                </button>
+            <div className="relative z-10 p-8 md:p-16 grid lg:grid-cols-12 gap-12 items-center">
                 
-                 <a 
-                    href="#" 
-                    className="flex items-center gap-2 bg-[#2c2c2e] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#3a3a3c] transition-colors border border-white/10"
-                >
-                  <ExternalLink size={18} />
-                  وب‌سایت شخصی
-                </a>
-                
-                <div className="flex gap-2 mr-auto md:mr-0">
-                    <a href="#" className="p-3 rounded-full bg-[#2c2c2e] text-gray-400 hover:text-white hover:bg-[#3a3a3c] transition-colors border border-white/5">
-                        <Github size={20} />
-                    </a>
-                    <a href="#" className="p-3 rounded-full bg-[#2c2c2e] text-gray-400 hover:text-[#0077b5] hover:bg-[#3a3a3c] transition-colors border border-white/5">
-                        <Linkedin size={20} />
-                    </a>
+                {/* Visual / Image Side */}
+                <div className="lg:col-span-4 flex flex-col items-center lg:items-center order-1 lg:order-1">
+                    <div className="relative group/image perspective-1000">
+                        {/* Rotating Glow Ring */}
+                        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#fa2d48] to-purple-600 blur opacity-30 group-hover/image:opacity-60 transition duration-500 animate-spin-slow"></div>
+                        
+                        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-1.5 bg-[#1c1c1e] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover/image:scale-[1.02]">
+                             <img 
+                                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170&auto=format&fit=crop" 
+                                alt="Tavana Mohammadi" 
+                                className="w-full h-full rounded-full object-cover border-[6px] border-[#2c2c2e] shadow-inner grayscale-[20%] group-hover/image:grayscale-0 transition-all duration-500"
+                            />
+                        </div>
+                         {/* Status Badge */}
+                        <div className="absolute bottom-6 right-6 bg-blue-500 text-white p-3 rounded-full border-[6px] border-[#1c1c1e] shadow-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer" title="Verified Maintainer">
+                            <Shield size={24} fill="currentColor" />
+                        </div>
+                    </div>
                 </div>
-              </div>
 
+                {/* Content Side */}
+                <div className="lg:col-span-8 text-center lg:text-right space-y-8 order-2 lg:order-2">
+                    
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-center lg:justify-start gap-2 opacity-70 mb-2">
+                             <Sparkles size={14} className="text-[#fa2d48]" />
+                             <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Core Architecture & Lead</span>
+                        </div>
+                        
+                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9]">
+                            توانا <br className="hidden md:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-300 to-gray-500">محمدی</span>
+                        </h2>
+                        
+                        <p className="text-xl md:text-2xl font-medium text-gray-400 max-w-2xl mx-auto lg:mx-0 pt-2">
+                            خالق معماری <span className="text-white border-b border-[#fa2d48]/50 pb-0.5">NavaCore</span> و متخصص امنیت شبکه.
+                        </p>
+                    </div>
+
+                    {/* Editorial Bio */}
+                    <p className="text-gray-400 leading-relaxed text-base md:text-lg max-w-3xl mx-auto lg:mx-0 font-light pl-0 lg:pl-12">
+                        با بیش از ۱۲ سال تجربه در لبه تکنولوژی، توانا بر روی تقاطع حریم خصوصی و عملکرد تمرکز دارد. او به عنوان یکی از مشارکت‌کنندگان اصلی پروژه Xray، زیرساخت‌هایی را طراحی کرده که اکنون توسط هزاران کاربر برای دسترسی آزاد به اطلاعات استفاده می‌شود. تمرکز او بر روی پیاده‌سازی پروتکل‌های <span className="text-white font-medium">Anti-DPI</span> و بهینه‌سازی هسته لینوکس برای پردازش ترافیک رمزنگاری شده است.
+                    </p>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                        <button className="h-14 px-8 rounded-full bg-[#fa2d48] hover:bg-[#ff2d55] text-white font-bold text-base transition-all shadow-[0_4px_20px_rgba(250,45,72,0.3)] hover:scale-105 active:scale-95 flex items-center gap-3">
+                             <FileCheck size={20} />
+                             مشاهده گزارش‌های امنیتی
+                        </button>
+                        <button className="h-14 px-8 rounded-full bg-[#2c2c2e]/80 hover:bg-[#3a3a3c] backdrop-blur-md text-white font-bold text-base transition-all border border-white/5 flex items-center gap-3 hover:scale-105 active:scale-95">
+                             <Globe size={20} />
+                             وب‌سایت شخصی
+                        </button>
+                        <div className="flex gap-2">
+                            <a href="#" className="w-14 h-14 rounded-full bg-[#2c2c2e]/80 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#3a3a3c] transition-all border border-white/5 hover:scale-110">
+                                <Github size={24} />
+                            </a>
+                            <a href="#" className="w-14 h-14 rounded-full bg-[#2c2c2e]/80 flex items-center justify-center text-gray-400 hover:text-[#0a66c2] hover:bg-[#3a3a3c] transition-all border border-white/5 hover:scale-110">
+                                <Linkedin size={24} />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-        </div>
 
-        {/* Small "Latest Work" or "Featured In" below - like "Top Songs" */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-             <div className="glass-panel p-4 rounded-2xl flex items-center gap-3 hover:bg-white/5 transition-colors cursor-pointer">
-                 <div className="bg-orange-500/20 p-2.5 rounded-xl text-orange-500"><Github size={20}/></div>
-                 <div className="flex flex-col">
-                     <span className="text-[10px] uppercase font-bold text-gray-500">Contributor</span>
-                     <span className="text-sm font-bold text-white">Xray-core</span>
-                 </div>
-             </div>
-             <div className="glass-panel p-4 rounded-2xl flex items-center gap-3 hover:bg-white/5 transition-colors cursor-pointer">
-                 <div className="bg-blue-500/20 p-2.5 rounded-xl text-blue-500"><Award size={20}/></div>
-                 <div className="flex flex-col">
-                     <span className="text-[10px] uppercase font-bold text-gray-500">Certified</span>
-                     <span className="text-sm font-bold text-white">CISSP</span>
-                 </div>
-             </div>
+            {/* Bottom "Track List" Style Skills */}
+            <div className="border-t border-white/5 bg-black/20 backdrop-blur-xl">
+                <div className="p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                     {[
+                         { icon: Terminal, label: "Systems", val: "Linux Kernel" },
+                         { icon: Code2, label: "Language", val: "Golang / Rust" },
+                         { icon: Shield, label: "Focus", val: "Cryptography" },
+                         { icon: Cpu, label: "Architecture", val: "Distributed" },
+                     ].map((item, i) => (
+                         <div key={i} className="flex items-center gap-4 group cursor-default p-2 rounded-xl hover:bg-white/5 transition-colors">
+                             <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-[#fa2d48] transition-all shadow-lg">
+                                 <item.icon size={22} />
+                             </div>
+                             <div>
+                                 <div className="text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-0.5">{item.label}</div>
+                                 <div className="text-sm md:text-base font-bold text-gray-300 group-hover:text-white transition-colors">{item.val}</div>
+                             </div>
+                         </div>
+                     ))}
+                </div>
+            </div>
         </div>
 
       </div>

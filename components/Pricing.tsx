@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Music2 } from 'lucide-react';
+import { Check, Music2, Zap, Crown, Star, Sparkles } from 'lucide-react';
 import { Plan } from '../types';
 
 const plans: Plan[] = [
@@ -8,17 +8,17 @@ const plans: Plan[] = [
     name: 'تک ماهه',
     price: '۱۲۹,۰۰۰',
     duration: 'ماهانه',
-    features: ['۲ کاربر همزمان', 'حجم نامحدود', 'پشتیبانی آنلاین', 'پروتکل V2Ray'],
-    color: 'bg-gray-800',
+    features: ['۲ کاربر همزمان', 'حجم نامحدود', 'پشتیبانی آنلاین', 'پروتکل VLESS'],
+    color: 'from-gray-800 to-gray-900',
     popular: false,
   },
   {
     id: '2',
-    name: 'سه ماهه',
+    name: 'سه‌ماهه',
     price: '۳۴۹,۰۰۰',
-    duration: 'سه ماهه',
+    duration: '۳ ماهه',
     features: ['۲ کاربر همزمان', 'حجم نامحدود', 'پشتیبانی VIP', 'آی‌پی ثابت (هدیه)', 'ضمانت بازگشت وجه'],
-    color: 'bg-[#fa2d48]',
+    color: 'from-[#fa2d48] via-[#ff2d55] to-[#ff5864]',
     popular: true,
   },
   {
@@ -27,78 +27,80 @@ const plans: Plan[] = [
     price: '۱,۱۹۰,۰۰۰',
     duration: 'سالانه',
     features: ['۴ کاربر همزمان', 'حجم نامحدود', 'پشتیبانی اختصاصی', 'سرورهای گیمینگ', 'پایین‌ترین پینگ'],
-    color: 'bg-gray-800',
+    color: 'from-blue-600 via-indigo-600 to-purple-600',
     popular: false,
   },
 ];
 
 const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-24 px-6 relative z-10">
+    <section id="pricing" className="py-32 px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">پلن مناسب خود را انتخاب کنید</h2>
-            <p className="text-gray-400 text-lg">دسترسی نامحدود به تمامی سرورها در تمامی پلن‌ها</p>
-          </div>
-          <div className="bg-white/10 p-1 rounded-xl flex">
-            <button className="px-6 py-2 rounded-lg bg-[#fa2d48] text-white font-medium shadow-md">عادی</button>
-            <button className="px-6 py-2 rounded-lg text-gray-400 hover:text-white font-medium">اختصاصی</button>
-          </div>
+        <div className="text-center mb-16">
+           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-white">اشتراک‌ها</h2>
+           <p className="text-xl text-gray-400">یک اشتراک برای تمام دستگاه‌های شما.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {plans.map((plan) => (
             <div 
               key={plan.id}
-              className={`relative rounded-[32px] p-8 transition-all duration-500 hover:-translate-y-2 flex flex-col ${
+              className={`relative rounded-[32px] overflow-hidden transition-all duration-500 group flex flex-col ${
                 plan.popular 
-                  ? 'bg-gradient-to-b from-[#fa2d48]/90 to-[#fa2d48]/70 border border-[#ff6b81]/50 shadow-[0_20px_60px_rgba(250,45,72,0.4)]' 
-                  : 'glass-panel hover:bg-white/10'
+                  ? 'scale-105 shadow-[0_30px_80px_-20px_rgba(250,45,72,0.4)] z-10 border-none' 
+                  : 'hover:scale-[1.02] bg-[#1c1c1e] border border-white/5 hover:border-white/10'
               }`}
             >
-              {plan.popular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-[#fa2d48] px-4 py-1 rounded-full text-xs font-bold shadow-lg uppercase tracking-wider">
-                  پیشنهاد ویژه
-                </div>
-              )}
+              {/* Header / Color Block */}
+              <div className={`p-8 h-56 bg-gradient-to-br ${plan.color} relative flex flex-col justify-between overflow-hidden`}>
+                  {/* Abstract shapes in background */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-black/10 rounded-full blur-2xl -ml-10 -mb-10"></div>
 
-              <div className="mb-8">
-                <div className="flex items-center gap-3 mb-4">
-                    <div className={`p-2 rounded-full ${plan.popular ? 'bg-white/20' : 'bg-white/10'}`}>
-                        <Music2 size={24} className={plan.popular ? 'text-white' : 'text-[#fa2d48]'} />
-                    </div>
-                    <h3 className="text-2xl font-bold">{plan.name}</h3>
-                </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-black">{plan.price}</span>
-                  <span className={`text-sm ${plan.popular ? 'text-white/80' : 'text-gray-400'}`}>تومان</span>
-                </div>
-                <p className={`text-sm mt-1 ${plan.popular ? 'text-white/80' : 'text-gray-500'}`}>
-                    پرداخت هر {plan.duration}
-                </p>
-              </div>
-
-              <div className="flex-grow space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className={`p-1 rounded-full ${plan.popular ? 'bg-white/20 text-white' : 'bg-[#fa2d48]/20 text-[#fa2d48]'}`}>
-                        <Check size={14} strokeWidth={3} />
-                    </div>
-                    <span className={`text-sm font-medium ${plan.popular ? 'text-white' : 'text-gray-300'}`}>{feature}</span>
+                  {plan.popular && (
+                      <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/20 flex items-center gap-1 uppercase tracking-wider shadow-lg">
+                          <Sparkles size={12} />
+                          پیشنهاد ویژه
+                      </div>
+                  )}
+                  
+                  <div className="text-white relative z-10">
+                      <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6 shadow-inner border border-white/10">
+                         {plan.id === '2' ? <Crown size={24} className="opacity-100" /> : plan.id === '3' ? <Star size={24} className="opacity-100"/> : <Zap size={24} className="opacity-100"/>}
+                      </div>
+                      <h3 className="text-3xl font-bold tracking-tight">{plan.name}</h3>
+                      <p className="opacity-80 font-medium mt-1">{plan.duration}</p>
                   </div>
-                ))}
               </div>
 
-              <button 
-                className={`w-full py-4 rounded-xl font-bold text-lg transition-all active:scale-95 ${
-                  plan.popular 
-                    ? 'bg-white text-[#fa2d48] hover:bg-gray-100 shadow-xl' 
-                    : 'bg-[#fa2d48] text-white hover:bg-[#d4233a] shadow-lg shadow-[#fa2d48]/20'
-                }`}
-              >
-                انتخاب پلن
-              </button>
+              {/* Price & Features */}
+              <div className={`p-8 flex-grow flex flex-col ${plan.popular ? 'bg-[#252527]' : ''}`}>
+                 <div className="flex items-baseline gap-1 mb-8 border-b border-white/5 pb-8">
+                  <span className="text-4xl font-black text-white">{plan.price}</span>
+                  <span className="text-sm text-gray-500 font-medium">تومان</span>
+                </div>
+
+                <div className="space-y-5 mb-8 flex-grow">
+                  {plan.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.popular ? 'bg-[#fa2d48]/20 text-[#fa2d48]' : 'bg-white/10 text-gray-400'}`}>
+                          <Check size={12} strokeWidth={3} />
+                      </div>
+                      <span className={`text-sm font-medium ${plan.popular ? 'text-white' : 'text-gray-300'}`}>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button 
+                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all active:scale-95 ${
+                    plan.popular 
+                      ? 'bg-[#fa2d48] text-white hover:bg-[#d4233a] shadow-lg shadow-[#fa2d48]/20' 
+                      : 'bg-white text-black hover:bg-gray-200'
+                  }`}
+                >
+                  {plan.popular ? 'شروع اشتراک' : 'انتخاب'}
+                </button>
+              </div>
             </div>
           ))}
         </div>
